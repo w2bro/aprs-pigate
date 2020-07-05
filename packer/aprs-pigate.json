@@ -1,0 +1,61 @@
+{
+    "variables": {},
+    "builders": [
+        {
+            "type": "arm-image",
+            "iso_url": "http://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2020-05-28/2020-05-27-raspios-buster-lite-armhf.zip",
+            "iso_checksum_type": "sha256",
+            "iso_checksum": "f5786604be4b41e292c5b3c711e2efa64b25a5b51869ea8313d58da0b46afc64",
+            "last_partition_extra_size": 524288000
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": [
+                "touch /boot/ssh"
+            ]
+        },
+        {
+            "type": "shell",
+            "script": "packer/base.sh"
+        },
+        {
+            "type": "file",
+            "source": "files/etc/cloud/cloud.cfg",
+            "destination": "/etc/cloud/cloud.cfg"
+        },
+        {
+            "type": "shell",
+            "script": "packer/rtl-sdr.sh"
+        },
+        {
+            "type": "file",
+            "source": "files/home/pi/dw-start-cron.sh",
+            "destination": "/home/pi/dw-start-cron.sh"
+        },
+        {
+            "type": "file",
+            "source": "files/home/pi/rtl-dw-start.sh",
+            "destination": "/home/pi/rtl-dw-start.sh"
+        },
+        {
+            "type": "file",
+            "source": "files/etc/cron.d/aprs-pigate",
+            "destination": "/etc/cron.d/aprs-pigate"
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "chmod +x /home/pi/dw-start-cron.sh",
+                "chmod +x /home/pi/rtl-dw-start.sh",
+                "chown -R pi:pi /home/pi"
+            ]
+        },
+        {
+            "type": "file",
+            "source": "files/boot/user-data.yaml",
+            "destination": "/boot/user-data"
+        }
+    ]
+}

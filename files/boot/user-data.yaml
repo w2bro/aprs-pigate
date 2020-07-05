@@ -1,0 +1,39 @@
+#cloud-config
+# vim: syntax=yaml
+#
+
+hostname: aprs-pigate
+manage_etc_hosts: true
+apt_preserve_sources_list: true
+
+resize_rootfs: true
+growpart:
+    mode: auto
+    devices: ["/"]
+    ignore_growroot_disabled: false
+
+users:
+  - name: pi
+    gecos: "DefaultUser"
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    groups: users
+    lock_passwd: false
+    ssh_pwauth: false
+    chpasswd: { expire: false }
+
+package_update: true
+package_upgrade: true
+package_reboot_if_required: true
+packages:
+  - ntp
+
+locale: "en_US.UTF-8"
+timezone: "America/Chicago"
+
+final_message: "The system is finally up, after $UPTIME seconds"
+
+runcmd:
+  # Copy over user's predefined pigate conf to autostart
+  - [ mv, "/boot/pigate.conf", "/home/pi/pigate.conf"]
+  - [ chown, "pi:pi", "/home/pi/pigate.conf"]
