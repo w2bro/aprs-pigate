@@ -60,7 +60,7 @@
         },
         {
             "type": "file",
-            "source": "files/boot/user-data.yaml",
+            "source": "files/boot/user-data",
             "destination": "/boot/user-data"
         },
         {

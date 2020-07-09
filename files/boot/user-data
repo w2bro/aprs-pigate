@@ -34,5 +34,5 @@ timezone: "America/Chicago"
 final_message: "The system is finally up, after $UPTIME seconds"
 
 runcmd:
-  - "cp /boot/pigate.conf /home/pi/pigate.conf"
-  - "chown pi:pi /home/pi/pigate.conf"
+  - "cp /boot/direwolf.conf /home/pi/pigate-direwolf.conf"
+  - "chown pi:pi /home/pi/pigate-direwolf.conf"
