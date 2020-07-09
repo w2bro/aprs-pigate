@@ -34,6 +34,5 @@ timezone: "America/Chicago"
 final_message: "The system is finally up, after $UPTIME seconds"
 
 runcmd:
-  # Copy over user's predefined pigate conf to autostart
-  - [ mv, "/boot/pigate.conf", "/home/pi/pigate.conf"]
-  - [ chown, "pi:pi", "/home/pi/pigate.conf"]
+  - "cp /boot/pigate.conf /home/pi/pigate.conf"
+  - "chown pi:pi /home/pi/pigate.conf"

@@ -13,8 +13,14 @@
         {
             "type": "shell",
             "inline": [
-                "touch /boot/ssh"
+                "touch /boot/ssh",
+                "mkdir -p /home/pi/aprslogs"
             ]
+        },
+        {
+            "type": "file",
+            "source": "files/etc/logrotate.d/direwolf",
+            "destination": "/etc/logrotate.d/direwolf"
         },
         {
             "type": "shell",
@@ -56,6 +62,11 @@
             "type": "file",
             "source": "files/boot/user-data.yaml",
             "destination": "/boot/user-data"
+        },
+        {
+            "type": "file",
+            "source": "files/boot/meta-data",
+            "destination": "/boot/meta-data"
         }
     ]
 }

@@ -1,0 +1,8 @@
+/home/pi/aprslogs/aprs.log {
+    daily
+    dateext
+    copytruncate
+    rotate 14
+    compress
+    missingok
+}
