@@ -5,7 +5,7 @@ Prebuilt Raspberry Pi image for running a HAM radio APRS Internet Gateway using 
 
 ### Installation
 1. Download & Flash the image to an SD card
-2. Insert SD card into a computer and load your wpa_supplicant.conf into boot if you are using wifi, and drop in a [pigate.conf](files/boot/pigate.conf) with your Callsign and password. You can use any custom direwolf config file here, enabling many different hardware configurations!
+2. Insert SD card into a computer and load your wpa_supplicant.conf into boot if you are using wifi, and drop in a `direwolf.conf` with your callsign and password. You can use any custom direwolf config file here, enabling many different hardware configurations!
 3. Insert into a raspberry pi with RTL-SDR plugged into USB, and power up! If everything was configured correctly, in about 5 minutes you should see it pop up on [aprs.fi].
 
 Once the pi is running, it should be available on your network with hostname `aprs-pigate` and accessible via SSH `pi@aprs-pigate` using the default raspberry password. It is a good idea to change this once logged in, or disable passwords altogether and use SSH keys, which you can do by modifying the `user-data` file accessible on the boot partition after flashing.
@@ -16,7 +16,7 @@ The startup script creates a `screen` and executes the startup script [`rtl-dw-s
 Logs are also written to `/home/pi/aprslogs/aprs.log`. You can view these with commands like `less` or `tail`, and generally may be easier to work with than the direwolf screen.
 
 ### Customizing the Start Script
-If you are setting up a digipeater, you can disable the Software Defined Radio by creating an empty file `DISABLE_SDR` and placing it into the boot folder of your SD card along with `pigate.conf`. See the [`rtl-dw-start.sh`] startup script for more details.
+If you are setting up a digipeater, you can disable the Software Defined Radio by creating an empty file `DISABLE_SDR` and placing it into the boot folder of your SD card along with `direwolf.conf`. See the [`rtl-dw-start.sh`] startup script for more details.
 
 ## Contributing & Development
 This project uses the following dependencies:
