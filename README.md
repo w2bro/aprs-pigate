@@ -1,15 +1,19 @@
 # aprs-pigate
 Prebuilt Raspberry Pi image for running a HAM radio APRS Internet Gateway using [direwolf] and [rtl-sdr]
 
-## Usage
+## Getting Started
 
 ### Installation
 1. Download & Flash the image to an SD card
 2. Insert SD card into a computer and load your wpa_supplicant.conf into boot if you are using wifi, and drop in a [pigate.conf](files/boot/pigate.conf) with your Callsign and password. You can use any custom direwolf config file here, enabling many different hardware configurations!
 3. Insert into a raspberry pi with RTL-SDR plugged into USB, and power up! If everything was configured correctly, in about 5 minutes you should see it pop up on [aprs.fi].
 
+Once the pi is running, it should be available on your network with hostname `aprs-pigate` and accessible via SSH `pi@aprs-pigate` using the default raspberry password. It is a good idea to change this once logged in, or disable passwords altogether and use SSH keys, which you can do by modifying the `user-data` file accessible on the boot partition after flashing.
+
 ### Viewing Dire Wolf Output
 The startup script creates a `screen` and executes the startup script [`rtl-dw-start.sh`]. If at any time you want to explore the logs, you can ssh into your pigate and run the command `screen -r direwolf`. CTRL+C to leave the screen.
+
+Logs are also written to `/home/pi/aprslogs/aprs.log`. You can view these with commands like `less` or `tail`, and generally may be easier to work with than the direwolf screen.
 
 ### Customizing the Start Script
 If you are setting up a digipeater, you can disable the Software Defined Radio by creating an empty file `DISABLE_SDR` and placing it into the boot folder of your SD card along with `pigate.conf`. See the [`rtl-dw-start.sh`] startup script for more details.
@@ -27,4 +31,4 @@ Run `make build` to start building your first image.
 [`flash`]: https://github.com/hypriot/flash
 [`packer-build-arm-image`]: https://github.com/solo-io/packer-builder-arm-image/
 [rtl-sdr]: https://www.rtl-sdr.com/
-[`rtl-dw-sart.sh`]: files/home/pi/rtl-dw-start.sh
+[`rtl-dw-start.sh`]: files/home/pi/rtl-dw-start.sh
