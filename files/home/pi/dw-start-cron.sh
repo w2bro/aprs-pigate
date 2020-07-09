@@ -16,7 +16,7 @@
 # e.g.  DIREWOLF="/usr/local/bin/direwolf"
 DIREWOLF="direwolf"
 
-DWCMD="/home/pi/rtl-dw-start.sh"
+DWCMD="/home/pi/pigate-start.sh"
 
 # Where will logs go - needs to be writable by non-root users
 LOGFILE=/var/tmp/dw-start.log

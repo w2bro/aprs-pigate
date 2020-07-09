@@ -42,8 +42,8 @@
         },
         {
             "type": "file",
-            "source": "files/home/pi/rtl-dw-start.sh",
-            "destination": "/home/pi/rtl-dw-start.sh"
+            "source": "files/home/pi/pigate-start.sh",
+            "destination": "/home/pi/pigate-start.sh"
         },
         {
             "type": "file",
@@ -54,7 +54,7 @@
             "type": "shell",
             "inline": [
                 "chmod +x /home/pi/dw-start-cron.sh",
-                "chmod +x /home/pi/rtl-dw-start.sh",
+                "chmod +x /home/pi/pigate-start.sh",
                 "chown -R pi:pi /home/pi"
             ]
         },
