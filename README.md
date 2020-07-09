@@ -1,7 +1,6 @@
 # aprs-pigate
 Prebuilt Raspberry Pi image for running a HAM radio APRS Internet Gateway using [direwolf] and [rtl-sdr]
 
-## Feature List
 :star: Pre-compiled `direwolf` and `rtl-sdr` library
 
 :star: Pre-configured cron job runs every minute to make sure direwolf is running

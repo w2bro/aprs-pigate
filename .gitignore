@@ -3,4 +3,4 @@ packer_cache
 *.img
 .DS_Store
 wpa_supplicant.conf
-sdr.conf
+*.zip
