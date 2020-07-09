@@ -21,4 +21,5 @@ build: docker
 
 
 archive:
-	zip -jrX9 aprs-pigate-${GIT_HASH}.zip output-arm-image/aprs-pigate.img
+	mv aprs-pigate.img aprs-pigate-${GIT_HASH}.img
+	zip -jrX aprs-pigate-${GIT_HASH}.zip aprs-pigate-${GIT_HASH}.img
